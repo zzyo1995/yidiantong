@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bean.UsersEntity" table="users" schema="wifi">
+        <id name="uid">
+            <column name="userID" sql-type="int(11)"/>
+            <generator class="increment"></generator>
+        </id>
+        <property name="uname">
+            <column name="UserName" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="upass">
+            <column name="Password" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="email">
+            <column name="Email" sql-type="varchar(255)"/>
+        </property>
+        <property name="mac">
+            <column name="MAC" sql-type="char(17)" length="17" not-null="true"/>
+        </property>
+        <!--配置多对多关系-->
+<!--        <set name="routerEntities" table="u2r" inverse="true">
+            <key column="UserID"></key>
+            <many-to-many class="bean.RouterEntity" column="RouterID"></many-to-many>
+        </set>-->
+    </class>
+</hibernate-mapping>

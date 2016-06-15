@@ -1,0 +1,9 @@
+div.content {
+    position: relative;
+    top: 25px;
+}
+
+div.centerDiv {
+    margin: 0 auto;
+    text-align: center;
+}

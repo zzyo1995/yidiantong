@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bean.RouterEntity" table="router" schema="wifi">
+        <id name="rid">
+            <column name="RouterID" sql-type="int(11)"/>
+            <generator class="increment"></generator>
+        </id>
+        <property name="gname">
+            <column name="GroupName" sql-type="varchar(255)"/>
+        </property>
+        <property name="mac">
+            <column name="RouterMAC" sql-type="char(17)" length="17" not-null="true"/>
+        </property>
+        <!--配置多对多关系映射-->
+<!--        <set name="usersEntities" table="u2r">
+            <key column="RouterID"></key>
+            <many-to-many class="bean.UsersEntity" column="UserID"></many-to-many>
+        </set>-->
+    </class>
+</hibernate-mapping>
